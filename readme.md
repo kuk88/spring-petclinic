@@ -39,6 +39,22 @@ There is no `Dockerfile` in this project. You can build a container image (if yo
 ./mvnw spring-boot:build-image
 ```
 
+Run docker container
+* `THC_PORT=8080` - default value is 8080, may be omitted
+* `THC_PATH="/"` - default values is "/", may be omitted
+* `-Dserver.port=8080` - default value is 8080, may be omitted
+
+```
+docker run -d --name pet-clinic -p 9080:8080 `
+ --health-cmd='/cnb/process/health-check || exit 1' `
+ --health-interval=10s --health-retries=5 --health-timeout=5s --health-start-period=15s `
+ -e THC_PORT=8080 `
+ -e THC_PATH="/" `
+ -e MYSQL_URL="jdbc:mysql://172.17.0.2:3306/petclinic" `
+ -e "JAVA_OPTS=-Dspring.profiles.active=mysql -Dserver.port=8080  -DMYSQL_USER=petclinic -DMYSQL_PASS=petclinic" `
+  spring-petclinic:3.1.1-SNAPSHOT
+```
+
 ## In case you find a bug/suggested improvement for Spring Petclinic
 Our issue tracker is available [here](https://github.com/spring-projects/spring-petclinic/issues)
 
