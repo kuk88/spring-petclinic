@@ -15,6 +15,7 @@ services:
       - "./conf.d:/etc/mysql/conf.d:ro"
     profiles:
     - mysql
+    - secretsmanager-mysql
   postgres:
     image: postgres:15.3
     ports:
