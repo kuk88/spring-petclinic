@@ -55,6 +55,11 @@ docker run -d --name pet-clinic -p 9080:8080 `
   spring-petclinic:3.1.1-SNAPSHOT
 ```
 
+## Push Docker Container to AWS ECR
+```
+ docker tag 
+```
+
 ## In case you find a bug/suggested improvement for Spring Petclinic
 Our issue tracker is available [here](https://github.com/spring-projects/spring-petclinic/issues)
 
